@@ -1,4 +1,6 @@
-
-.background{
+body{
     background-image: url("imagens/testemenu.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
