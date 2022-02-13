@@ -5,8 +5,12 @@ var gravity=0.9
 var air=false // caranguejo está a saltar
 var andarparaesquerda = false
 var andarparadireita = false
+andarparadireita = andarparaesquerda = false
 var timerdireita
 var timeresquerda
+
+document.addEventListener("keydown",keyDown);
+document.addEventListener("keyup",keyUp);
 
 function saltar(){
     if (air) return // impedir double jump
@@ -36,7 +40,7 @@ function esquerda() {
     }
      timeresquerda = setInterval(function () {
          console.log("esquerda")
-        left -= 5;
+        left -= 10;
         caranguejo.style.left = left + "px";
     }, 20)
 }
@@ -48,36 +52,49 @@ function esquerda() {
     }
          timerdireita = setInterval(function (){
              console.log("direita")
-            left += 5;
+            left += 10;
             caranguejo.style.left = left + "px";
         },20)
 
 }
 
-window.onkeydown = function(event) {
-    processa_tecla(event.key)
+
+
+function keyDown (evt) {
+    switch (evt.keyCode) {
+        case 32 :
+            saltar();
+            break;
+
+        case 38:
+            saltar();
+            break;
+
+        case 37 :
+            clearInterval(timeresquerda)
+            clearInterval(timerdireita)
+            esquerda();
+            andarparadireita = false;
+            break;
+
+        case 39:
+            clearInterval(timerdireita)
+            clearInterval(timeresquerda)
+            direita();
+            andarparaesquerda = false
+            break;
+
+    }
+}
+function keyUp(evt) {
+    switch(evt.keyCode) {
+        case 37:
+            clearInterval(timeresquerda)
+            break;
+        case 39:
+            clearInterval(timerdireita)
+            break;
+    }
 }
 
-function processa_tecla(key) {
-    if (key === " ") {
-        saltar();
-    }
-    else if (key === "ArrowUp"){
-        saltar();
-    }
-    else if (key === "ArrowLeft"){
-        clearInterval(timerdireita)
-        esquerda();
-        andarparaesquerda=true;
-        andarparadireita=false
-    }
-    else if (key === "ArrowRight"){
-        clearInterval(timeresquerda)
-        direita();
-        andarparadireita=true;
-        andarparaesquerda=false
-
-    }
-
-}
 
