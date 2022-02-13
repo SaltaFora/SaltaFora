@@ -22,7 +22,7 @@ function saltar(){
                     clearInterval(timerdown)
                     air=false
                 }
-                bottom -=5
+                bottom -=10
                 caranguejo.style.bottom = bottom + "px";
             }, 20)
         }
@@ -30,7 +30,7 @@ function saltar(){
         air= true
         bottom +=30;
         bottom= bottom * gravity
-        caranguejo.style.bottom = bottom + "px";}, 20)
+        caranguejo.style.bottom = bottom + "px";}, 10)
 }
 
 function esquerda() {
