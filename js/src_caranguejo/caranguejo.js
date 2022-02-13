@@ -33,9 +33,7 @@ function esquerda() {
     document.getElementById("imagem").src="../imagens/andar%20esquerda.png";
     if (andarparadireita){
         clearInterval(timerdireita);
-        andarparadireita= false;
     }
-    andarparaesquerda = true
      timeresquerda = setInterval(function () {
          console.log("esquerda")
         left -= 5;
@@ -47,9 +45,7 @@ function esquerda() {
         document.getElementById("imagem").src="../imagens/andar%20direita.png";
     if (andarparaesquerda){
         clearInterval(timeresquerda);
-        andarparaesquerda=false;
     }
-        andarparadireita=true
          timerdireita = setInterval(function (){
              console.log("direita")
             left += 5;
@@ -70,10 +66,18 @@ function processa_tecla(key) {
         saltar();
     }
     else if (key === "ArrowLeft"){
+        clearInterval(timerdireita)
         esquerda();
+        andarparaesquerda=true;
+        andarparadireita=false
     }
     else if (key === "ArrowRight"){
+        clearInterval(timeresquerda)
         direita();
+        andarparadireita=true;
+        andarparaesquerda=false
+
     }
 
 }
+
