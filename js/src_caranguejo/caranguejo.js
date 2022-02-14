@@ -1,3 +1,5 @@
+//variáveis
+
 const caranguejo = document.getElementById("caranguejo")
 var bottom=0
 var left=0
@@ -31,7 +33,7 @@ function saltar(){
         bottom +=30;
         bottom= bottom * gravity
         caranguejo.style.bottom = bottom + "px";}, 10)
-}
+}//final função saltar
 
 function esquerda() {
     document.getElementById("imagem").src="../imagens/andar%20esquerda.png";
@@ -43,7 +45,7 @@ function esquerda() {
         left -= 10;
         caranguejo.style.left = left + "px";
     }, 20)
-}
+} //final função esquerda
 
     function direita(){
         document.getElementById("imagem").src="../imagens/andar%20direita.png";
@@ -56,7 +58,7 @@ function esquerda() {
             caranguejo.style.left = left + "px";
         },20)
 
-}
+}//final função direita
 
 
 
@@ -85,7 +87,9 @@ function keyDown (evt) {
             break;
 
     }
-}
+}//final função keyDown
+
+
 function keyUp(evt) {
     switch(evt.keyCode) {
         case 37:
@@ -95,6 +99,6 @@ function keyUp(evt) {
             clearInterval(timerdireita)
             break;
     }
-}
+}//Final keyUp
 
 
