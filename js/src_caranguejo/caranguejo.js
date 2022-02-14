@@ -7,7 +7,9 @@ var gravity=0.9
 var air=false // caranguejo está a saltar
 var andarparaesquerda = false
 var andarparadireita = false
+
 andarparadireita = andarparaesquerda = false
+
 var timerdireita
 var timeresquerda
 
@@ -36,7 +38,7 @@ function saltar(){
 }//final função saltar
 
 function esquerda() {
-    document.getElementById("imagem").src="../imagens/andar%20esquerda.png";
+    document.getElementById("imagem").src="../imagens/caranguejo_esquerda.png";
     if (andarparadireita){
         clearInterval(timerdireita);
     }
@@ -48,7 +50,7 @@ function esquerda() {
 } //final função esquerda
 
     function direita(){
-        document.getElementById("imagem").src="../imagens/andar%20direita.png";
+        document.getElementById("imagem").src="../imagens/caranguejo_direita.png";
     if (andarparaesquerda){
         clearInterval(timeresquerda);
     }
