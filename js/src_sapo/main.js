@@ -100,7 +100,7 @@ function loop() {
      
     if (delta > interval) {
         var backgroundImage = new Image();
-        backgroundImage.src = "Sprites/background.png";
+        backgroundImage.src = "../imagens/interfaces/cenario_ave";
         ctx.drawImage(backgroundImage, 0, 0, screenWidth, screenHeight) 
 
         for (var i = 0; i < blocks.length; i++) {

@@ -1,17 +1,17 @@
 function spawnMonster() {
     var monsterChances = {
-        "smallRed": 30
+        "microplastico": 30
     };
 
-    if (Math.round(Math.random() * monsterChances["smallRed"]) === 0) {
-        return "smallRed";
+    if (Math.round(Math.random() * monsterChances["microplastico"]) === 0) {
+        return "microplastico";
     }
     return 0;
 }
 
-var smallRed = new function() {
+var microPlastico = new function() {
     this.img = new Image();
-    this.img.src = "Sprites/Monsters/smallRed.png";
+    this.img.src = "../imagens/inimigo_microplástico.png";
     this.xDif = 10;
     this.yDif = -30;
     this.width = 69;
@@ -23,5 +23,5 @@ var smallRed = new function() {
 }
 
 var monsterFunctions = {
-    "smallRed": smallRed
+    "smallRed": microPlastico
 }

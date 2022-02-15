@@ -2,7 +2,7 @@ var player = new function() {
     this.x = 300;
     this.y = 550;
     this.img = new Image();
-    this.img.src = "imagens/1.png";
+    this.img.src = "../imagens/sapo.png";
     this.width = 80;
     this.height = 80;
     this.xSpeed = 6.7;
@@ -25,21 +25,21 @@ var player = new function() {
             ctx.font = "60px Arial";
             ctx.fillStyle = "red";
             ctx.textAlign = "center";
-            ctx.fillText("You Died!", screenWidth / 2, screenHeight / 2);
+            ctx.fillText("Oh Não! Morreste :(", screenWidth / 2, screenHeight / 2);
             ctx.font = "36px Arial";
-            ctx.fillText("Press r to restart", screenWidth / 2, (screenHeight / 2) + 50);
+            ctx.fillText("Pressiona R para recomeçar", screenWidth / 2, (screenHeight / 2) + 50);
         }
 
         //Pressiona o A
         if (holdingLeftKey) {
             this.direction = "left";
-            this.img.src = "imagens/1.1.png";
+            this.img.src = "../imagens/sapo_esquerda.png";
             player.moveLeft();
         }
         //Pressiona o D
         if (holdingRightKey) {
             this.direction = "right";
-            this.img.src = "Sprites/rightPlayer.png";
+            this.img.src = "../imagens/sapo_direita.png";
             player.moveRight();
         }
 
