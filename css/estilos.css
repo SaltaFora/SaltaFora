@@ -1,5 +1,4 @@
 /*-----------------------------HomePage-------------------------------*/
-
 .fadeImage {
     -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 4s; /* Firefox < 16 */
@@ -29,7 +28,6 @@
     width: 200%;
     height: 200%;
 }
-
 #bg img {
     position: absolute;
     top: 0;
@@ -40,6 +38,11 @@
     min-width: 50%;
     min-height: 50%;
 }
+
+/*botão jogar*/
+
+
+
 
 /*------------------------Nivel Caranguejo----------------------------*/
 
