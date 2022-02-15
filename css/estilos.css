@@ -1,4 +1,5 @@
 /*-----------------------------HomePage-------------------------------*/
+
 .fadeImage {
     -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 4s; /* Firefox < 16 */
@@ -7,6 +8,7 @@
     animation: fadein 4s;
     display: block;
     margin: 25px auto;
+
 }
 
 @keyframes fadein {
@@ -27,6 +29,7 @@
     width: 200%;
     height: 200%;
 }
+
 #bg img {
     position: absolute;
     top: 0;
