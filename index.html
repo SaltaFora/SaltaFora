@@ -8,18 +8,41 @@
 
         <meta charset="utf-8">
     </head>
+
+<style>
+    body{
+        background-image: url("imagens/testemenu.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        opacity: 1.0;
+        -webkit-transition: background 1.5s linear;
+        -moz-transition: background 1.5s linear;
+        -o-transition: background 1.5s linear;
+        -ms-transition: background 1.5s linear;
+        transition: background 1.5s linear;
+
+        animation: fadeInAnimation ease 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
 <body>
 
 
 <!-- AQUI É PRECISO CRIAR UM CICLO IF THE ONCLICK PARA ESCOLHER QUAL SCRIPT COMEÇAR A RODAR-->
 
-<!-- TESTE -->
-<div class="jogo">
-    <div class="caranguejo" id="caranguejo">
-        <img id="imagem" src="imagens/caranguejo.png" alt="imagem do caranguejo">
-    </div>
-</div>
 
 </body>
-<script src="js/src_caranguejo/caranguejo.js"></script>
+
 </html>
