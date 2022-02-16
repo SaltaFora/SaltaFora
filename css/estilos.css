@@ -40,7 +40,14 @@
 }
 
 /*botão jogar*/
-
+.btn-warning{
+    position:absolute;
+    bottom:50%;
+    right:50%;
+    width:100px;
+    height:30px;
+    margin:0 -50px -15px 0;
+}
 
 
 
