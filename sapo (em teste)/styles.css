@@ -1,10 +1,32 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+
+
+
 .grid{
-    width: 1280px;
-    height: 720px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     background-image: url("imagens/cenario_sapo.jpg");
-    position: relative;
     font-size: 100px;
     text-align: center;
+    background-position: center;
+
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .doodler{
