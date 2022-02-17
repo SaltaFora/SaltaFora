@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const grid=document.querySelector(".grid");
     const doodler = document.createElement("div");
-    let x = 50;
-    let y = 150;
     let isGameOver = false;
     let platformCount = 13;
     let platforms = [];
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let doodlerLeftSpace = 50
     let startPoint = 150
     let doodlerBottomSpace = startPoint
-    const gravity = 0.9
     let upTimerId
     let downTimerId
     let isJumping = true
@@ -125,11 +122,11 @@ function createPlatforms(){
         upTimerId = setInterval(function () {
             console.log(startPoint)
             console.log('1', doodlerBottomSpace)
-            doodlerBottomSpace += 20
+            doodlerBottomSpace += 30
             doodler.style.bottom = doodlerBottomSpace + 'px'
             console.log('2',doodlerBottomSpace)
             console.log('s',startPoint)
-            if (doodlerBottomSpace > (startPoint + 200)) {
+            if (doodlerBottomSpace > (startPoint + 250)) {
                 fall()
                 isJumping = false
             }
