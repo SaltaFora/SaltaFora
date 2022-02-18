@@ -26,13 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function control(e) {
-        doodler.style.bottom = doodlerBottomSpace + 'px'
         if(e.key === 'ArrowLeft') {
             moveLeft()
         } else if (e.key === 'ArrowRight') {
             moveRight()
         } else if (e.key === 'ArrowUp') {
             moveStraight()
+        }
+         else if (e.key === 'r') {
+            if (isGameOver) {
+                isGameOver=false
+                doodlerLeftSpace = 50
+                startPoint = 150
+                doodlerBottomSpace = startPoint
+                clearInterval(rightTimerId)
+                clearInterval(leftTimerId)
+                grid.innerHTML = ""
+
+                start()
+            }
         }
     }
     function moveLeft() {
@@ -57,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isGoingRight = true
         rightTimerId = setInterval(function () {
             //changed to 313 to fit doodle image
-            if (doodlerLeftSpace <= 1220) {
+            if (doodlerLeftSpace <= 1500) {
                 console.log('going right')
                 doodlerLeftSpace +=5
                 doodler.style.left = doodlerLeftSpace + 'px'
@@ -78,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 class Platform{
     constructor(newPlatBottom) {
         this.bottom= newPlatBottom;
-        this.left = Math.random() * 1180;
+        this.left = Math.random() * 1400;
         this.visual= document.createElement('div');
 
         const visual = this.visual;
@@ -131,7 +143,7 @@ function createPlatforms(){
             doodler.style.bottom = doodlerBottomSpace + 'px'
             console.log('2',doodlerBottomSpace)
             console.log('s',startPoint)
-            if (doodlerBottomSpace > (startPoint + 250)) {
+            if (doodlerBottomSpace > (startPoint + 270)) {
                 fall()
                 isJumping = false
             }
@@ -169,16 +181,17 @@ function createPlatforms(){
     jump()
     function gameOver() {
         isGameOver = true
+        document.addEventListener('keydown', control)
         while (grid.firstChild) {
             console.log('remove')
             grid.removeChild(grid.firstChild)
         }
         grid.innerHTML = score
-        clearInterval(upTimerId)
-        clearInterval(downTimerId)
-        clearInterval(leftTimerId)
-        clearInterval(rightTimerId)
-    }
+        }
+
+
+
+
 
 
 function start(){
@@ -186,9 +199,12 @@ function start(){
         createPlatforms();
         createDoodler();
         setInterval(movePlatforms,30)
-        document.addEventListener('keyup', control)
+        document.addEventListener('keydown', control)
+        document.addEventListener('keyup', bugfix)
     }
+
 }
+
 start() // botão
 
 
