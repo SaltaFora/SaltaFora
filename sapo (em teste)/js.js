@@ -28,8 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function control(e) {
         if(e.key === 'ArrowLeft') {
             moveLeft()
+            clearInterval(rightTimerId)
         } else if (e.key === 'ArrowRight') {
             moveRight()
+            clearInterval(leftTimerId)
         } else if (e.key === 'ArrowUp') {
             moveStraight()
         }
@@ -48,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function moveLeft() {
-        clearInterval(rightTimerId)
         if (isGoingRight) {
             clearInterval(rightTimerId)
             isGoingRight = false
@@ -65,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },20)
     }
     function moveRight() {
-        clearInterval(leftTimerId)
         if (isGoingLeft) {
             clearInterval(leftTimerId)
             isGoingLeft = false
@@ -128,7 +128,6 @@ function createPlatforms(){
                     let firstPlatform = platforms[0].visual
                     firstPlatform.classList.remove('platform')
                     platforms.shift()
-                    console.log(platforms)
                     score++
                     var newPlatform = new Platform(600)
                     platforms.push(newPlatform)
@@ -142,13 +141,9 @@ function createPlatforms(){
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {
-            console.log(startPoint)
-            console.log('1', doodlerBottomSpace)
             doodler.style.backgroundImage="url('imagens/sapoSalta_100x102.png')";
-            doodlerBottomSpace += 30
+            doodlerBottomSpace += 20
             doodler.style.bottom = doodlerBottomSpace + 'px'
-            console.log('2',doodlerBottomSpace)
-            console.log('s',startPoint)
             if (doodlerBottomSpace > (startPoint + 270)) {
                 fall()
                 isJumping = false
@@ -160,7 +155,7 @@ function createPlatforms(){
         isJumping = false
         clearInterval(upTimerId)
         downTimerId = setInterval(function () {
-            doodlerBottomSpace -= 5
+            doodlerBottomSpace -= 7
             doodler.style.backgroundImage="url('imagens/sapo_1_100x101.png')";
             doodler.style.bottom = doodlerBottomSpace + 'px'
             if (doodlerBottomSpace <= 0) {
@@ -174,10 +169,9 @@ function createPlatforms(){
                     (doodlerLeftSpace <= (platform.left + 100)) &&
                     !isJumping
                 ) {
-                    console.log('tick')
+
                     startPoint = doodlerBottomSpace
                     jump()
-                    console.log('start', startPoint)
                     isJumping = true
                 }
             })
@@ -189,7 +183,6 @@ function createPlatforms(){
         isGameOver = true
         document.addEventListener('keydown', control)
         while (grid.firstChild) {
-            console.log('remove')
             grid.removeChild(grid.firstChild)
         }
         grid.innerHTML = score
@@ -206,7 +199,6 @@ function start(){
         createDoodler();
         setInterval(movePlatforms,30)
         document.addEventListener('keydown', control)
-        document.addEventListener('keyup', bugfix)
     }
 
 }
