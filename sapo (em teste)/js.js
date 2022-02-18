@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let platforms = [];
     let score = 0
     let doodlerLeftSpace = 50
-    let startPoint = 150
+    let startPoint = 200
     let doodlerBottomSpace = startPoint
     let upTimerId
     let downTimerId
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function moveLeft() {
+        clearInterval(rightTimerId)
         if (isGoingRight) {
             clearInterval(rightTimerId)
             isGoingRight = false
@@ -58,10 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('going left')
                 doodlerLeftSpace -=5
                 doodler.style.left = doodlerLeftSpace + 'px';
-            } else moveRight()
+            } else {
+                doodlerLeftSpace= 1500
+            }
         },20)
     }
     function moveRight() {
+        clearInterval(leftTimerId)
         if (isGoingLeft) {
             clearInterval(leftTimerId)
             isGoingLeft = false
@@ -74,7 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 doodlerLeftSpace +=5
                 doodler.style.left = doodlerLeftSpace + 'px'
 
-            } else moveLeft()
+            } else{
+                doodlerLeftSpace= 0
+            }
         },20)
     }
     function moveStraight() {
