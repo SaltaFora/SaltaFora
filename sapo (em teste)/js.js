@@ -186,7 +186,7 @@ function start(){
         createPlatforms();
         createDoodler();
         setInterval(movePlatforms,30)
-        document.addEventListener('keydown', control)
+        document.addEventListener('keyup', control)
     }
 }
 start() // botão
