@@ -110,7 +110,7 @@ class Platform{
 
 function createPlatforms(){
     for (let i=0; i < platformCount; i++){
-        let platformGap = 1280 / platformCount;
+        let platformGap = 1500 / platformCount;
         let newPlatBottom = 100 + i * platformGap;
         let newPlatform = new Platform(newPlatBottom)
         platforms.push(newPlatform)
