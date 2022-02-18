@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (doodlerLeftSpace >= 0) {
                 console.log('going left')
                 doodlerLeftSpace -=5
-                doodler.style.left = doodlerLeftSpace + 'px'
+                doodler.style.left = doodlerLeftSpace + 'px';
             } else moveRight()
         },20)
     }
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('going right')
                 doodlerLeftSpace +=5
                 doodler.style.left = doodlerLeftSpace + 'px'
+
             } else moveLeft()
         },20)
     }
@@ -69,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         isGoingRight = false
         clearInterval(leftTimerId)
         clearInterval(rightTimerId)
+        if (isJumping){
+
+        }
     }
 
 class Platform{
@@ -122,6 +126,7 @@ function createPlatforms(){
         upTimerId = setInterval(function () {
             console.log(startPoint)
             console.log('1', doodlerBottomSpace)
+            doodler.style.backgroundImage="url('imagens/sapoSalta_100x102.png')";
             doodlerBottomSpace += 30
             doodler.style.bottom = doodlerBottomSpace + 'px'
             console.log('2',doodlerBottomSpace)
@@ -138,6 +143,7 @@ function createPlatforms(){
         clearInterval(upTimerId)
         downTimerId = setInterval(function () {
             doodlerBottomSpace -= 5
+            doodler.style.backgroundImage="url('imagens/sapo_1_100x101.png')";
             doodler.style.bottom = doodlerBottomSpace + 'px'
             if (doodlerBottomSpace <= 0) {
                 gameOver()
@@ -180,7 +186,7 @@ function start(){
         createPlatforms();
         createDoodler();
         setInterval(movePlatforms,30)
-        document.addEventListener('keyup', control)
+        document.addEventListener('keydown', control)
     }
 }
 start() // botão
