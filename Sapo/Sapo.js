@@ -64,8 +64,8 @@ class Platform{
 
         this.type = 'wood';
         let random = Math.random()
-        if(random < 0.2) this.type = "stone"
-        else if(random < 0.3) this.type = "leaf"
+        if(random < 0.25) this.type = "stone"
+        else if(random < 0.35) this.type = "leaf"
         else if(random < 0.4) this.type = "enemy"
 
         this.offset = 0
@@ -105,8 +105,8 @@ function createPlatforms(){
 
                 if(platform.type == 'stone') {
                     platform.offset +=platform.moveSpeed
-                    if(platform.offset < -100) platform.moveSpeed = 1
-                    if(platform.offset > 100) platform.moveSpeed = -1
+                    if(platform.offset < -100) platform.moveSpeed = 1.2
+                    if(platform.offset > 100) platform.moveSpeed = -1.2
                 }
 
                 platform.visual.style.left = platform.left + platform.offset + 'px'
@@ -121,7 +121,7 @@ function createPlatforms(){
                 if(platform.bottom < 50) {
                     platform.visual.classList.remove('platform-' + platform.type)
                     platforms.splice(i,1)
-                    score++
+                    score= (score + 1)
                     var newPlatform = new Platform(600)
                     platforms.push(newPlatform)
                 }
