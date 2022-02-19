@@ -41,9 +41,17 @@ body{
 .ave{
     width: 100px;
     height: 102px;
-    background-image: url("imagens/ave.png");
+    background-image: url("imagens/ave_plana.png");
     position: absolute;
 }
+
+.caranguejo{
+    width: 100px;
+    height: 102px;
+    background-image: url("imagens/caranguejo.png");
+    position: absolute;
+}
+
 
 .platform-wood{
     width: 100px;
@@ -77,6 +85,6 @@ body{
     position: absolute;
     z-index: 100;
     bottom: -700px;
-    left: 0px;
+    left: 0;
     width: 100%;
 }
