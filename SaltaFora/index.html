@@ -42,12 +42,19 @@
         }
 
     </style>
-
 </head>
 
 <body>
 
-<div class="container d-flex h-100 fadeImage">
+<!--Tentar enganar os browsers chromium -->
+<!--PARA FUNCIONAR É PRECISO ALTERAR AS FLAGS DE AUTOPLAY DO BROWSER autoplay limit default Setting -->
+<iframe src="../sound/silence.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+</iframe>
+<audio autoplay loop id="playAudio">
+    <source src="../sound/musica_menu.mp3">
+</audio>
+
+<div class="container d-flex h-100 fadeImage" id="container">
     <div class="row align-self-center w-100">
         <div class="col-6 mx-auto centro">
             <h4>SALTA FORA</h4>

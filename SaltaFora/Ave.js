@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.moveSpeed = 0
             if(this.type == 'stone') {
                 this.offset = 0
-                this.moveSpeed = -1
             }
 
             const visual = this.visual;
@@ -218,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         while (grid.firstChild) {
             grid.removeChild(grid.firstChild)
         }
+
         grid.innerHTML = 'Score: ' + score
         grid.innerHTML += '<br><br><br>Pressiona \'r\' para jogar novamente!'
     }
