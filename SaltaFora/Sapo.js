@@ -223,8 +223,8 @@ function createPlatforms(){     // Criação de objeto
             grid.removeChild(grid.firstChild)
         }
         document.getElementById('agua').style.display = 'none'
-        grid.innerHTML = 'Score: ' + score
-        grid.innerHTML += '<br><br><br>Pressiona \'r\' para jogar novamente!'
+        grid.innerHTML = '<br>Score: ' + score
+        grid.innerHTML += '<br><br>Pressiona \'r\' para jogar novamente!'
     }
 
 
