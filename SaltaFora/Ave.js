@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let keysDown = {}
 
-    const grid=document.querySelector(".grid");
+    const grid=document.querySelector(".gridAve");
     const ave = document.createElement("div");
     let isGameOver = false;
     let platformCount = 13;
