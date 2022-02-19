@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     class Platform{
         constructor(newPlatBottom) {
             this.bottom= newPlatBottom;
-            this.left = Math.random() * innerWidth;
+            this.left = Math.random() * (innerWidth-100);;
             this.visual= document.createElement('div');
 
             this.type = 'wood';
@@ -105,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function movePlatforms() {
         if(isGameOver) return
-        //if (caranguejoBottomSpace > 200) {
         for(let i in platforms) {
             let platform = platforms[i]
 
@@ -270,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     document.addEventListener('keyup', logKey);
     function logKey(e) {
-        if (e.key === ' ' && !isJumping && !doublejumped ) {
+        if (e.key === ' ' && !isJumping && !doubleJumped ) {
             console.log("keyup")
            jump()
             doubleJumped=true
