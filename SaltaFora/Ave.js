@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             aveBottomSpace += 20
             ave.style.bottom = aveBottomSpace + 'px'
             downvelocity=7
-            if (aveBottomSpace > (startPoint + 270)) {
+            if (aveBottomSpace > (startPoint + 285)) {
                 fall()
                 isJumping = false
             }
