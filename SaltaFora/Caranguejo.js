@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const caranguejo = document.createElement("div");
     let isGameOver = false;
     let platformCount = 13;
-    let platforms = [];
+    let platforms = [];                                                                          //Objeto
     let score = 0
     let caranguejoLeftSpace = 50
     let startPoint = 400
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rightTimerId
     let leafFrozen = -1
     let leafCooldown = false;
-    let doublejumped = false
+    let doubleJumped = false
 
 
     function createCaranguejo() {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     class Platform{
         constructor(newPlatBottom) {
             this.bottom= newPlatBottom;
-            this.left = Math.random() * 1400;
+            this.left = Math.random() * innerWidth;
             this.visual= document.createElement('div');
 
             this.type = 'wood';
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         startPoint = caranguejoBottomSpace
                         jump()
                         isJumping = true
-                        doublejumped = false
+                        doubleJumped = false
                     }
 
 
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         grid.innerHTML = 'Score: ' + score
         grid.innerHTML += '<br><br><br>Pressiona \'r\' para jogar novamente!'
-        doublejumped=false
+        doubleJumped=false
     }
 
 
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === ' ' && !isJumping && !doublejumped ) {
             console.log("keyup")
            jump()
-            doublejumped=true
+            doubleJumped=true
 
         }
         }

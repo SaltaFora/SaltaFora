@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sapo = document.createElement("div");
     let isGameOver = false;
     let platformCount = 13;
-    let platforms = [];
+    let platforms = [];                                                                          //Objeto
     let score = 0
     let sapoLeftSpace = 50
     let startPoint = 400
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 class Platform{
     constructor(newPlatBottom) {
         this.bottom= newPlatBottom;
-        this.left = Math.random() * 1400;
+        this.left = Math.random() * (innerWidth-100);
         this.visual= document.createElement('div');
 
         this.type = 'wood';
@@ -136,7 +136,7 @@ function createPlatforms(){     // Criação de objeto
             sapo.style.backgroundImage="url('imagens/sapoSalta_100x102.png')";
             sapoBottomSpace += 20
             sapo.style.bottom = sapoBottomSpace + 'px'
-            if (sapoBottomSpace > (startPoint + 270)) {
+            if (sapoBottomSpace > (startPoint + 330)) {
                 fall()
                 isJumping = false
             }
