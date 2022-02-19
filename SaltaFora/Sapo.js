@@ -222,6 +222,7 @@ function createPlatforms(){     // Criação de objeto
         while (grid.firstChild) {
             grid.removeChild(grid.firstChild)
         }
+        document.getElementById('agua').style.display = 'none'
         grid.innerHTML = 'Score: ' + score
         grid.innerHTML += '<br><br><br>Pressiona \'r\' para jogar novamente!'
     }
@@ -233,6 +234,7 @@ function createPlatforms(){     // Criação de objeto
 
 function start(){
     if (!isGameOver){
+        document.getElementById('agua').style.display = 'block'
         grid.innerHTML = ''
         score = 0
         sapoLeftSpace = 50
