@@ -87,7 +87,7 @@ class Platform{
 function createPlatforms(){
     if(isGameOver) return
     for (let i=0; i < platformCount; i++){
-        let platformGap = 1500 / platformCount;
+        let platformGap = innerWidth / platformCount;
         let newPlatBottom = 100 + i * platformGap;
         let newPlatform = new Platform(newPlatBottom)
 
