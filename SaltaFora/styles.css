@@ -31,10 +31,17 @@ body{
     left: 0;
 }
 
-.doodler{
+.sapo{
     width: 100px;
     height: 102px;
     background-image: url("imagens/sapo_1_100x101.png");
+    position: absolute;
+}
+
+.ave{
+    width: 100px;
+    height: 102px;
+    background-image: url("imagens/ave.png");
     position: absolute;
 }
 
