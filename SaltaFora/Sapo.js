@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let keysDown = {}
 
     const grid=document.querySelector(".grid");
-    const doodler = document.createElement("div");
+    const sapo = document.createElement("div");
     let isGameOver = false;
     let platformCount = 13;
     let platforms = [];
     let score = 0
-    let doodlerLeftSpace = 50
+    let sapoLeftSpace = 50
     let startPoint = 400
-    let doodlerBottomSpace = startPoint
+    let sapoBottomSpace = startPoint
     let upTimerId
     let downTimerId
     let isJumping = true
@@ -19,34 +19,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let leafFrozen = -1
     let leafCooldown = false;
 
-    function createDoodler() {
-        grid.appendChild(doodler)
-        doodler.classList.add('doodler')
-        doodlerLeftSpace = platforms[0].left
-        doodler.style.left = doodlerLeftSpace + 'px'
-        doodler.style.bottom = doodlerBottomSpace + 'px'
+    function createsapo() {
+        grid.appendChild(sapo)
+        sapo.classList.add('sapo')
+        sapoLeftSpace = platforms[0].left
+        sapo.style.left = sapoLeftSpace + 'px'
+        sapo.style.bottom = sapoBottomSpace + 'px'
     }
 
     function control() {
         if(keysDown['ArrowLeft'] && leafFrozen == -1) {
-            doodlerLeftSpace -= 4
-            doodler.style.left = doodlerLeftSpace + 'px';
+            sapoLeftSpace -= 4
+            sapo.style.left = sapoLeftSpace + 'px';
         } else if (keysDown['ArrowRight'] && leafFrozen == -1) {
-            doodlerLeftSpace += 4
-            doodler.style.left = doodlerLeftSpace + 'px';
+            sapoLeftSpace += 4
+            sapo.style.left = sapoLeftSpace + 'px';
         }
-        if(doodlerLeftSpace < -100) {
-            doodlerLeftSpace = window.innerWidth
+        if(sapoLeftSpace < -100) {
+            sapoLeftSpace = window.innerWidth
         }
-        if(doodlerLeftSpace > window.innerWidth) {
-            doodlerLeftSpace = -100
+        if(sapoLeftSpace > window.innerWidth) {
+            sapoLeftSpace = -100
         }
          else if (keysDown['r']) {
             if (isGameOver) {
                 isGameOver=false
-                doodlerLeftSpace = 50
+                sapoLeftSpace = 50
                 startPoint = 150
-                doodlerBottomSpace = startPoint
+                sapoBottomSpace = startPoint
                 clearInterval(rightTimerId)
                 clearInterval(leftTimerId)
                 grid.innerHTML = ""
@@ -99,7 +99,7 @@ function createPlatforms(){
 
     function movePlatforms() {
         if(isGameOver) return
-        //if (doodlerBottomSpace > 200) {
+        //if (sapoBottomSpace > 200) {
             for(let i in platforms) {
                 let platform = platforms[i]
 
@@ -111,10 +111,10 @@ function createPlatforms(){
 
                 platform.visual.style.left = platform.left + platform.offset + 'px'
                 platform.bottom -= 0.7
-                if(doodlerBottomSpace > 200) platform.bottom -=0.4
-                if(doodlerBottomSpace > 500) platform.bottom -=2
-                if(doodlerBottomSpace > 800) platform.bottom -=3
-                if(doodlerBottomSpace > 1000) platform.bottom -=6
+                if(sapoBottomSpace > 200) platform.bottom -=0.4
+                if(sapoBottomSpace > 500) platform.bottom -=2
+                if(sapoBottomSpace > 800) platform.bottom -=3
+                if(sapoBottomSpace > 1000) platform.bottom -=6
 
                 platform.visual.style.bottom = platform.bottom + 'px'
 
@@ -134,20 +134,20 @@ function createPlatforms(){
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {
-            doodler.style.backgroundImage="url('imagens/sapoSalta_100x102.png')";
-            doodlerBottomSpace += 20
-            doodler.style.bottom = doodlerBottomSpace + 'px'
-            if (doodlerBottomSpace > (startPoint + 270)) {
+            sapo.style.backgroundImage="url('imagens/sapoSalta_100x102.png')";
+            sapoBottomSpace += 20
+            sapo.style.bottom = sapoBottomSpace + 'px'
+            if (sapoBottomSpace > (startPoint + 270)) {
                 fall()
                 isJumping = false
             }
 
             platforms.forEach(platform => {
                 if (
-                    (doodlerBottomSpace >= platform.bottom) &&
-                    (doodlerBottomSpace <= (platform.bottom + 100)) &&
-                    ((doodlerLeftSpace + 60) >= platform.left+platform.offset) &&
-                    (doodlerLeftSpace <= (platform.left+platform.offset + 100))
+                    (sapoBottomSpace >= platform.bottom) &&
+                    (sapoBottomSpace <= (platform.bottom + 100)) &&
+                    ((sapoLeftSpace + 60) >= platform.left+platform.offset) &&
+                    (sapoLeftSpace <= (platform.left+platform.offset + 100))
                 ) {
                         if(platform.type == 'enemy') {
                             platform.visual.classList.remove('platform-'+platform.type)
@@ -169,21 +169,21 @@ function createPlatforms(){
         isJumping = false
         clearInterval(upTimerId)
         downTimerId = setInterval(function () {
-            doodlerBottomSpace -= 7
-            doodler.style.backgroundImage="url('imagens/sapo_1_100x101.png')";
-            doodler.style.bottom = doodlerBottomSpace + 'px'
-            if (doodlerBottomSpace <= 0) {
+            sapoBottomSpace -= 7
+            sapo.style.backgroundImage="url('imagens/sapo_1_100x101.png')";
+            sapo.style.bottom = sapoBottomSpace + 'px'
+            if (sapoBottomSpace <= 0) {
                 gameOver()
             }
             platforms.forEach(platform => {
                 if (
-                    (doodlerBottomSpace >= platform.bottom) &&
-                    (doodlerBottomSpace <= (platform.bottom + (platform.type == 'enemy'? 100 : 15))) &&
-                    ((doodlerLeftSpace + 60) >= platform.left+platform.offset) &&
-                    (doodlerLeftSpace <= (platform.left+platform.offset + 100))
+                    (sapoBottomSpace >= platform.bottom) &&
+                    (sapoBottomSpace <= (platform.bottom + (platform.type == 'enemy'? 100 : 15))) &&
+                    ((sapoLeftSpace + 60) >= platform.left+platform.offset) &&
+                    (sapoLeftSpace <= (platform.left+platform.offset + 100))
                 ) {
                         if(platform.type == 'leaf' && !isJumping) {
-                            doodlerBottomSpace = platform.bottom+15
+                            sapoBottomSpace = platform.bottom+15
                             if(leafFrozen <= 0 && leafCooldown == false) {
                                 leafFrozen = 50
                                 leafCooldown = true
@@ -194,7 +194,7 @@ function createPlatforms(){
                         } else if(platform.type == 'enemy') {
                             platform.visual.classList.remove('platform-'+platform.type)
                             platforms.splice(platforms.indexOf(platform),1)
-                            if(doodlerBottomSpace >= platform.bottom+80) {
+                            if(sapoBottomSpace >= platform.bottom+80) {
                                 jump()
                                 isJumping = true
                             }
@@ -205,7 +205,7 @@ function createPlatforms(){
                             
                             
                         } else if(!isJumping) {
-                            startPoint = doodlerBottomSpace
+                            startPoint = sapoBottomSpace
                             jump()
                             isJumping = true
                         }
@@ -236,11 +236,11 @@ function start(){
     if (!isGameOver){
         grid.innerHTML = ''
         score = 0
-        doodlerLeftSpace = 50
+        sapoLeftSpace = 50
         startPoint = 400
-        doodlerBottomSpace = startPoint
+        sapoBottomSpace = startPoint
         createPlatforms();
-        createDoodler();
+        createsapo();
         
         update()
     }
@@ -269,7 +269,7 @@ start() // botão
     movePlatforms()
     if(leafFrozen > 0 && leafCooldown) leafFrozen -= 1
     if(leafFrozen == 0) {
-        startPoint = doodlerBottomSpace
+        startPoint = sapoBottomSpace
         jump()
         leafFrozen = -1;
         isJumping = true
