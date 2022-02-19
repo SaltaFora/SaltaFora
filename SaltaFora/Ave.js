@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (keysDown[' ']) {
             if(!isJumping) {
                 ave.style.backgroundImage="url('imagens/ave.png')";
-                aveBottomSpace+=2;
                 downvelocity=5
             }
         }
