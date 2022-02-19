@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let leafFrozen = -1
     let leafCooldown = false;
 
-    function createsapo() {
+    function createSapo() {
         grid.appendChild(sapo)
         sapo.classList.add('sapo')
         sapoLeftSpace = platforms[0].left
@@ -69,7 +69,6 @@ class Platform{
         else if(random < 0.4) this.type = "enemy"
 
         this.offset = 0
-        this.moveSpeed = 0
         if(this.type == 'stone') {
             this.offset = 0
             this.moveSpeed = -1
@@ -84,7 +83,7 @@ class Platform{
         }
     }
 
-function createPlatforms(){
+function createPlatforms(){     // Criação de objeto
     if(isGameOver) return
     for (let i=0; i < platformCount; i++){
         let platformGap = innerWidth / platformCount;
@@ -99,7 +98,7 @@ function createPlatforms(){
 
     function movePlatforms() {
         if(isGameOver) return
-        //if (sapoBottomSpace > 200) {
+
             for(let i in platforms) {
                 let platform = platforms[i]
 
@@ -240,7 +239,7 @@ function start(){
         startPoint = 400
         sapoBottomSpace = startPoint
         createPlatforms();
-        createsapo();
+        createSapo();
         
         update()
     }
@@ -262,9 +261,9 @@ document.addEventListener('keyup', function(e) {
 
 
 
-start() // botão
+start()
 
-  function update() {
+  function update() {  //loop
     control()
     movePlatforms()
     if(leafFrozen > 0 && leafCooldown) leafFrozen -= 1

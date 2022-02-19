@@ -13,13 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let upTimerId
     let downTimerId
     let isJumping = true
-    let leftTimerId
-    let rightTimerId
     let leafFrozen = -1
     let leafCooldown = false;
     let downvelocity=7
 
-    function createave() {
+    function createAve() {
         grid.appendChild(ave)
         ave.classList.add('ave')
         aveLeftSpace = platforms[0].left
@@ -67,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.moveSpeed = 0
             if(this.type == 'stone') {
                 this.offset = 0
+                this.moveSpeed = -1
             }
 
             const visual = this.visual;
@@ -78,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function createPlatforms(){
+    function createPlatforms(){     // Criação de objeto
         if(isGameOver) return
         for (let i=0; i < platformCount; i++){
             let platformGap = innerWidth / platformCount;
@@ -92,8 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function movePlatforms() {
-        if(isGameOver) return
-        //if (aveBottomSpace > 200) {
+
         for(let i in platforms) {
             let platform = platforms[i]
 
@@ -235,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startPoint = 400
             aveBottomSpace = startPoint
             createPlatforms();
-            createave();
+            createAve();
 
             update()
         }
@@ -259,10 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     start()
 
-    function update() {
+    function update() { //loop
         control()
         movePlatforms()
-        if(leafFrozen > 0 && leafCooldown) leafFrozen -= 1
+        if(leafFrozen > 0 && leafCooldown)
+            leafFrozen -= 1
         if(leafFrozen == 0) {
             startPoint = aveBottomSpace
             jump()

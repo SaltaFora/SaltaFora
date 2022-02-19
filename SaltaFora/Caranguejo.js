@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let doublejumped = false
 
 
-    function createcaranguejo() {
+    function createCaranguejo() {
         grid.appendChild(caranguejo)
         caranguejo.classList.add('caranguejo')
         caranguejoLeftSpace = platforms[0].left
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function createPlatforms(){
+    function createPlatforms(){     // Criação de objeto
         if(isGameOver) return
         for (let i=0; i < platformCount; i++){
             let platformGap = innerWidth / platformCount;
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startPoint = 400
             caranguejoBottomSpace = startPoint
             createPlatforms();
-            createcaranguejo();
+            createCaranguejo();
 
             update()
         }
@@ -281,9 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    start() // botão
+    start()
 
-    function update() {
+    function update() {   // loop
         control()
         movePlatforms()
         if(leafFrozen > 0 && leafCooldown) leafFrozen -= 1
