@@ -13,17 +13,51 @@
     <!--BS4-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
+    <!--Estilos background e imagem logo FALTA FONTE-->
+    <style>
+        body{
+            background-image: url("imagens/interfaces/landing_page.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden; /* Garantir que não aparecem os scrolls chatos */
+            width: 100%;
+            height:100vh;  /* responsive height garantida */
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .square{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            top: 250px;
+            left: 40px;
+        }
+        .posicionarBotao{
+            position: relative;
+            top: 150px;
+            right: 10px;
+        }
+    </style>
 
 </head>
+
 <body>
 
-<!-- IMAGEM DE FUNDO DA LANDING PAGE -->
-<div id="bg" class="fadeImage">
-    <img src="imagens/interfaces/landing_page.jpg" alt="Landing Page" class="img-fluid">
-    <div>
-        <button type="button" class="btn-warning fadeImage">LALALA</button>
+    <!-- logo -->
+    <div class="square fadeImage">
+        <img src="imagens/logo.png" alt="Logotipo do jogo">
     </div>
-</div>
+
+    <!--Botão jogar -->
+    <div class="text-box text-center pt-5 mr-5 fadeImage posicionarBotao">
+        <a href="#" class="btn btn-white btn-animate">JOGAR</a>
+    </div>
+
+
 
 
 

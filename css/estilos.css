@@ -1,4 +1,5 @@
 /*-----------------------------HomePage-------------------------------*/
+
 .fadeImage {
     -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 4s; /* Firefox < 16 */
@@ -21,35 +22,74 @@
     to   { opacity: 1; }
 }
 
-#bg {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+
+
+/*botão jogar*/
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
 }
-#bg img {
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #0f70b7;
+    color: white;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 50%;
+    z-index: -1;
+    transition: all .4s;
 }
 
-/*botão jogar*/
-.btn-warning{
-    position:absolute;
-    bottom:50%;
-    right:50%;
-    width:100px;
-    height:30px;
-    margin:0 -50px -15px 0;
+.btn-white::after {
+    background-color: #0f70b7;
 }
 
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
 
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 
 /*------------------------Nivel Caranguejo----------------------------*/
 
