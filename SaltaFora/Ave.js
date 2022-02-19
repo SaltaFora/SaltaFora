@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else if (keysDown[' ']) {
             if(!isJumping) {
-                ave.style.backgroundImage="url('imagens/ave_plana.png')";
+                ave.style.backgroundImage="url('imagens/ave.png')";
                 aveBottomSpace+=2;
                 downvelocity=5
             }
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {
-            ave.style.backgroundImage="url('imagens/ave.png')";
+            ave.style.backgroundImage="url('imagens/ave_plana.png')";
             aveBottomSpace += 20
             ave.style.bottom = aveBottomSpace + 'px'
             downvelocity=7
