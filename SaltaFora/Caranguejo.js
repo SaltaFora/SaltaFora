@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let rightTimerId
     let leafFrozen = -1
     let leafCooldown = false;
+    let doublejumped = false
+
 
     function createcaranguejo() {
         grid.appendChild(caranguejo)
@@ -32,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
             caranguejo.style.left = caranguejoLeftSpace + 'px';
         } else if (keysDown['ArrowRight'] && leafFrozen == -1) {
             caranguejoLeftSpace += 4
+            caranguejo.style.left = caranguejoLeftSpace + 'px';
+        }
+
             caranguejo.style.left = caranguejoLeftSpace + 'px';
         }
         if(caranguejoLeftSpace < -100) {
@@ -52,8 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 start()
             }
-        }
+
     }
+
+
 
     class Platform{
         constructor(newPlatBottom) {
@@ -164,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function fall() {
+            console.log("fall")
         isJumping = false
         clearInterval(upTimerId)
         downTimerId = setInterval(function () {
@@ -205,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         startPoint = caranguejoBottomSpace
                         jump()
                         isJumping = true
+                        doublejumped = false
                     }
 
 
@@ -213,8 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         },20)
     }
-    jump()
+
     function gameOver() {
+        clearInterval(downTimerId)
+         caranguejoBottomSpace = startPoint
         isGameOver = true
         platforms = []
         while (grid.firstChild) {
@@ -222,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         grid.innerHTML = 'Score: ' + score
         grid.innerHTML += '<br><br><br>Pressiona \'r\' para jogar novamente!'
+        doublejumped=false
     }
 
 
@@ -254,6 +266,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keyup', function(e) {
         keysDown[e.key] = false
     })
+    document.addEventListener('keyup', logKey);
+    function logKey(e) {
+        if (e.key === ' ' && !isJumping && !doublejumped ) {
+            console.log("keyup")
+           jump()
+            doublejumped=true
+
+        }
+        }
+
 
 
 
@@ -274,6 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(!isGameOver) requestAnimationFrame(update)
     }
-
+    jump()
 
 })
