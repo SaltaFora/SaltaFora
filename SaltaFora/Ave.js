@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rightTimerId
     let leafFrozen = -1
     let leafCooldown = false;
+    let downvelocity=7
 
     function createave() {
         grid.appendChild(ave)
@@ -35,7 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ave.style.left = aveLeftSpace + 'px';
         }
         else if (keysDown[' ']) {
-            console.log("ola");
+            if(!isJumping) {
+                ave.style.backgroundImage="url('imagens/ave_plana.png')";
+                aveBottomSpace+=2;
+                downvelocity=5
+            }
         }
         if(aveLeftSpace < -100) {
             aveLeftSpace = window.innerWidth
@@ -43,18 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(aveLeftSpace > window.innerWidth) {
             aveLeftSpace = -100
         }
-        else if (keysDown['r']) {
-            if (isGameOver) {
-                isGameOver = false
-                aveLeftSpace = 50
-                startPoint = 150
-                aveBottomSpace = startPoint
-                clearInterval(rightTimerId)
-                clearInterval(leftTimerId)
-                grid.innerHTML = ""
 
-                start()
-            }}
         }
 
 
@@ -139,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ave.style.backgroundImage="url('imagens/ave.png')";
             aveBottomSpace += 20
             ave.style.bottom = aveBottomSpace + 'px'
+            downvelocity=7
             if (aveBottomSpace > (startPoint + 270)) {
                 fall()
                 isJumping = false
@@ -171,8 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isJumping = false
         clearInterval(upTimerId)
         downTimerId = setInterval(function () {
-            aveBottomSpace -= 7
-            ave.style.backgroundImage="url('imagens/ave_plana.png')";
+            aveBottomSpace -= downvelocity
             ave.style.bottom = aveBottomSpace + 'px'
             if (aveBottomSpace <= 0) {
                 gameOver()
@@ -264,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    start() // botão
+    start()
 
     function update() {
         control()
