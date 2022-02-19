@@ -18,32 +18,24 @@
 
     <!--Estilos background e imagem-->
     <style>
-        body{
+        body {
             background-image: url("../imagens/interfaces/landing_page.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             overflow: hidden; /* Garantir que não aparecem os scrolls chatos */
             width: 100%;
-            height:100vh;  /* responsive height garantida */
+            height: 100vh; /* responsive height garantida */
         }
 
-        img{
-            width: 100%;
-            height: 100%;
+        .centro{
+            padding-left: 20%;
         }
-        .square{
-            width: 200px;
-            height: 200px;
-            position: relative;
-            top: 15.625rem;
-            left: 2.5rem;
+
+        h4{
+            color: #0f70b7;
         }
-        .posicionarBotao{
-            position: relative;
-            top: 9.375rem;
-            right: 0.625rem;
-        }
+
         .btn{
             color: white;
             font-family: 'Oswald', sans-serif;
@@ -55,20 +47,16 @@
 
 <body>
 
-    <!-- ISTO NÃO ESTÁ RESPONSIVE -->
-
-    <!-- logo -->
-    <div class="square fadeImage">
-        <img src="../imagens/logo.png" alt="Logotipo do jogo">
+<div class="container d-flex h-100 fadeImage">
+    <div class="row align-self-center w-100">
+        <div class="col-6 mx-auto centro">
+            <h4>SALTA FORA</h4>
+            <p class="lead">Projeto Laboratório Multimédia 4.</p>
+            <!--Botão jogar -->
+            <a href="escolhaNivel.html" class="btn btn-white btn-animate">Jogar</a>
+        </div>
     </div>
-
-    <!--Botão jogar -->
-    <div class="text-box text-center pt-5 mr-5 fadeImage posicionarBotao">
-        <a href="#" class="btn btn-white btn-animate" id="btn_jogar">Jogar</a>
-    </div>
-
-
-
+</div>
 
 
 </body>
