@@ -224,7 +224,7 @@ function createPlatforms(){
             grid.removeChild(grid.firstChild)
         }
         grid.innerHTML = 'Score: ' + score
-        grid.innerHTML += '<br><br><br>Press \'r\' to play again!'
+        grid.innerHTML += '<br><br><br>Pressiona \'r\' para jogar novamente!'
     }
 
 
