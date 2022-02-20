@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let audio = new Audio('../sound/salto_1.mp3');
 
 
+
     function createSapo() {
         grid.appendChild(sapo)
         sapo.classList.add('sapo')
@@ -226,8 +227,9 @@ function createPlatforms(){     // Criação de objeto
             grid.removeChild(grid.firstChild)
         }
         document.getElementById('agua').style.display = 'none'
-        grid.innerHTML = '<br>Score: ' + score
-        grid.innerHTML += '<br><br>Pressiona \'r\' para jogar novamente!'
+        document.getElementById("home").style.display = "block"
+        grid.innerHTML = '<br> Pontuação: ' + score
+        grid.innerHTML += '<br>Pressiona \'R\' para jogar novamente!'
     }
 
 
@@ -237,6 +239,7 @@ function createPlatforms(){     // Criação de objeto
 
 function start(){
     if (!isGameOver){
+        document.getElementById("home").style.display = "none"
         document.getElementById('agua').style.display = 'block'
         grid.innerHTML = ''
         score = 0

@@ -232,9 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
         while (grid.firstChild) {
             grid.removeChild(grid.firstChild)
         }
+        document.getElementById("home").style.display = "block"
         document.getElementById('agua').style.display = 'none'
-        grid.innerHTML = '<br>Score: ' + score
-        grid.innerHTML += '<br><br>Pressiona \'r\' para jogar novamente!'
+        grid.innerHTML = '<br> Pontuação: ' + score
+        grid.innerHTML += '<br>Pressiona \'R\' para jogar novamente!'
         doubleJumped=false
     }
 
@@ -245,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function start(){
         if (!isGameOver){
+            document.getElementById("home").style.display = "none"
             document.getElementById('agua').style.display = 'block'
             grid.innerHTML = ''
             score = 0
