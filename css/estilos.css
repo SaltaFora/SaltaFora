@@ -245,11 +245,13 @@ body{
     width: 100%;
 }
 
+/*------------------------ Botão Home ----------------------------*/
 .botao{
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 50;
     bottom: 500px;
-    left: 50px;
     width: 100%;
 
 }
