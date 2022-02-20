@@ -107,6 +107,8 @@ body{
     font-size: 100px;
     text-align: center;
     background-position: center;
+    color:royalblue;
+    font-family: 'Lobster', cursive;
 
     /* Set rules to fill background */
     min-height: 100%;
@@ -141,6 +143,8 @@ body{
     font-size: 100px;
     text-align: center;
     background-position: center;
+    color:royalblue;
+    font-family: 'Lobster', cursive;
 
     /* Set rules to fill background */
     min-height: 100%;
@@ -175,6 +179,8 @@ body{
     font-size: 100px;
     text-align: center;
     background-position: center;
+    color:royalblue;
+    font-family: 'Lobster', cursive;
 
     /* Set rules to fill background */
     min-height: 100%;
@@ -237,4 +243,13 @@ body{
     bottom: -700px;
     left: 0;
     width: 100%;
+}
+
+.botao{
+    position: absolute;
+    z-index: 50;
+    bottom: 500px;
+    left: 50px;
+    width: 100%;
+
 }
