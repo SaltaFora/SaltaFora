@@ -40,18 +40,33 @@
             right: 0;
             left: 0;
             margin: auto;
-            min-height: 75%;
-            min-width: 75%;
+            min-height: 68%;
+            min-width: 68%;
             max-width: 100%;  /* Garante que o video fica responsive em qualquer ecrã */
             height: auto;     /* Garante que o video fica responsive em qualquer ecrã */
+        }
+
+        #home{
+            position:fixed;
+            top:0;
+            left:0;
+
         }
     </style>
 </head>
 
 <body>
 
+
+
     <!-- Vídeo Bónus -->
     <div class="container">
+        <!-- Botão Menu -->
+        <div id="home" class="m-2">
+            <a href="escolhaNivel.html">
+                <img src="imagens/interfaces/icone_home.png" alt="home">
+            </a>
+        </div>
         <div class="row">
             <div class="col-*-12">
                 <video controls autoplay>
@@ -62,7 +77,5 @@
     </div>
 
 
-</body>
-</html>
 </body>
 </html>
