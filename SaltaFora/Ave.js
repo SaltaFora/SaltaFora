@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-    class Platform{
+    class Platform{                                                               //Propriedades de cada objeto
         constructor(newPlatBottom) {
             this.bottom= newPlatBottom;
             this.left = Math.random() * (innerWidth-100);
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function createPlatforms(){     // Criação de objeto
+    function createPlatforms(){                                                             // Criação de objeto
         if(isGameOver) return
         for (let i=0; i < platformCount; i++){
             let platformGap = innerWidth / platformCount;
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function movePlatforms() {
+    function movePlatforms() {                                                              //Plataformas descem
 
         for(let i in platforms) {
             let platform = platforms[i]
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             aveBottomSpace += 20
             ave.style.bottom = aveBottomSpace + 'px'
             downSpeed=7
-            if (aveBottomSpace > (startPoint + 285)) {
+            if (aveBottomSpace > (startPoint + 290)) {
                 fall()
                 isJumping = false
             }
@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     jump()
     function gameOver() {
+        console.log("ostias")
         isGameOver = true
         platforms = []
         while (grid.firstChild) {
@@ -259,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     start()
 
-    function update() { //loop
+    function update() {                                                                                //loop
         control()
         movePlatforms()
         if(leafFrozen > 0 && leafCooldown)
