@@ -1,2 +1,3 @@
-console.log("ola");
-let sgrgd;
+var { score } = require('Sapo.js')
+
+console.log(score)

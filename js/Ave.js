@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let leafFrozen = -1
     let leafCooldown = false;
     let downSpeed=7
+    let audio = new Audio('../sound/salto_1.mp3');
 
     function createAve() {
         grid.appendChild(ave)
@@ -39,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 downSpeed=4.5
             }
         }
-        if(aveLeftSpace < -100) {
+        if(aveLeftSpace < 0) {
             aveLeftSpace = window.innerWidth
         }
         if(aveLeftSpace > window.innerWidth) {
-            aveLeftSpace = -100
+            aveLeftSpace = 0
         }
 
         }
@@ -123,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function jump() {
+        audio.play()
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {

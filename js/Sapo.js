@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let rightTimerId
     let leafFrozen = -1
     let leafCooldown = false;
+    let audio = new Audio('../sound/salto_1.mp3');
+
 
     function createSapo() {
         grid.appendChild(sapo)
@@ -35,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
             sapoLeftSpace += 4
             sapo.style.left = sapoLeftSpace + 'px';
         }
-        if(sapoLeftSpace < -100) {
+        if(sapoLeftSpace < 0) {
             sapoLeftSpace = window.innerWidth
         }
         if(sapoLeftSpace > window.innerWidth) {
-            sapoLeftSpace = -100
+            sapoLeftSpace = 0
         }
          else if (keysDown['r']) {
             if (isGameOver) {
@@ -130,6 +132,7 @@ function createPlatforms(){     // Criação de objeto
     }
 
     function jump() {
+        audio.play()
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {

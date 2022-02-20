@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let leafFrozen = -1
     let leafCooldown = false;
     let doubleJumped = false
+    let audio = new Audio('../sound/salto_1.mp3');
 
 
     function createCaranguejo() {
@@ -39,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             caranguejo.style.left = caranguejoLeftSpace + 'px';
         }
-        if(caranguejoLeftSpace < -100) {
+        if(caranguejoLeftSpace < 0) {
             caranguejoLeftSpace = window.innerWidth
         }
         if(caranguejoLeftSpace > window.innerWidth) {
-            caranguejoLeftSpace = -100
+            caranguejoLeftSpace = 0
         }
         else if (keysDown['r']) {
             if (isGameOver) {
@@ -136,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function jump() {
+            audio.play();
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {
