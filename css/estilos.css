@@ -88,14 +88,7 @@
     }
 }
 
-/*------------------------Nivel Caranguejo----------------------------*/
-
-.caranguejo{
-    position: absolute;
-    bottom: 0;
-}
-
-
+/*------------------------ Niveis ----------------------------*/
 body{
     height: 100%;
     width: 100%;
@@ -103,7 +96,7 @@ body{
 }
 
 
-
+/*------------------------ Nível Sapo ----------------------------*/
 .gridSapo{
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -128,6 +121,15 @@ body{
     top: 0;
     left: 0;
 }
+
+.sapo{
+    width: 100px;
+    height: 102px;
+    background-image: url("../imagens/sapo_1_100x101.png");
+    position: absolute;
+}
+
+/*------------------------ Nível Ave ----------------------------*/
 
 .gridAve{
     -webkit-background-size: cover;
@@ -154,6 +156,15 @@ body{
     left: 0;
 }
 
+.ave{
+    width: 100px;
+    height: 102px;
+    background-image: url("../imagens/ave_plana.png");
+    position: absolute;
+}
+
+/*------------------------ Nível Caranguejo ----------------------------*/
+
 .gridCaranguejo{
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -179,19 +190,6 @@ body{
     left: 0;
 }
 
-.sapo{
-    width: 100px;
-    height: 102px;
-    background-image: url("../imagens/sapo_1_100x101.png");
-    position: absolute;
-}
-
-.ave{
-    width: 100px;
-    height: 102px;
-    background-image: url("../imagens/ave_plana.png");
-    position: absolute;
-}
 
 .caranguejo{
     width: 100px;
@@ -200,6 +198,8 @@ body{
     position: absolute;
 }
 
+
+/*------------------------ Plataformas ----------------------------*/
 
 .platform-wood{
     width: 100px;
@@ -228,6 +228,8 @@ body{
     background-image: url("../imagens/inimigo_microplastico_100x100.png");
     position: absolute;
 }
+
+/*------------------------ Gif Água ----------------------------*/
 
 .waterImg {
     position: absolute;
