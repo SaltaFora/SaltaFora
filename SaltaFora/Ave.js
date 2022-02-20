@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isJumping = true
     let leafFrozen = -1
     let leafCooldown = false;
-    let downvelocity=7
+    let downSpeed=7
 
     function createAve() {
         grid.appendChild(ave)
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (keysDown[' ']) {
             if(!isJumping) {
                 ave.style.backgroundImage="url('imagens/ave.png')";
-                downvelocity=5
+                downSpeed=4.5
             }
         }
         if(aveLeftSpace < -100) {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ave.style.backgroundImage="url('imagens/ave_plana.png')";
             aveBottomSpace += 20
             ave.style.bottom = aveBottomSpace + 'px'
-            downvelocity=7
+            downSpeed=7
             if (aveBottomSpace > (startPoint + 285)) {
                 fall()
                 isJumping = false
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isJumping = false
         clearInterval(upTimerId)
         downTimerId = setInterval(function () {
-            aveBottomSpace -= downvelocity
+            aveBottomSpace -= downSpeed
             ave.style.bottom = aveBottomSpace + 'px'
             if (aveBottomSpace <= 0) {
                 gameOver()
