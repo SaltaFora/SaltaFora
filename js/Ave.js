@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function jump() {
-        audio.play()
         clearInterval(downTimerId)
         isJumping = true
         upTimerId = setInterval(function () {
